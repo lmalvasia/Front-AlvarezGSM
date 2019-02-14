@@ -1,0 +1,46 @@
+.Header {
+  background-color: grey;
+  height: 100px;
+  padding-left: 30px;
+  opacity: 0.85;
+}
+
+.Header h1 {
+  color: #f25300;
+  font-size: 45px;
+  margin: 0;
+}
+
+span {
+  color: black;
+  font-size: 70px;
+}
+
+.Content
+{
+  padding-top: 50px;
+}
+
+.Menu {
+  margin: -40px 50px;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+
+.Menu li {
+  display: inline-block;
+  padding-right: 10px;
+  font-size: 22px;
+  padding-left: 20px;
+  font-variant: small-caps
+}
+
+.Menu li a {
+  color: #CCC;
+  text-decoration: none;
+}
+
+.Menu li a:hover {
+  color: #EEE;
+}
