@@ -12,8 +12,11 @@ class Content extends Component {
 
   render() {
     const { body } = this.props;
-
-    return <div className="Content">{body}</div>;
+    return (
+      <div className="col-md-10 p-5">
+        <div style={{ border: "1px solid black" }}> {body} </div>
+      </div>
+    );
   }
 }
 

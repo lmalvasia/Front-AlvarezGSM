@@ -8,7 +8,7 @@ class Providers extends Component {
   render() {
     return (
       <div className="Providers">
-        <div class="content">
+        <div className="content">
           <h1>Providers</h1>
         </div>
       </div>

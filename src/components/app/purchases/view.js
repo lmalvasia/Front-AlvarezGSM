@@ -8,7 +8,7 @@ class Purchases extends Component {
   render() {
     return (
       <div className="Purchases">
-        <div class="content">
+        <div className="content">
           <h1>Purchases</h1>
         </div>
       </div>

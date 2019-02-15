@@ -8,10 +8,10 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <div class="content">
+        <div className="content">
           <h2>Bienvenido al sitio web</h2>
         </div>
-        <div class="tagline">
+        <div className="tagline">
           <p>Welcome</p>
         </div>
       </div>

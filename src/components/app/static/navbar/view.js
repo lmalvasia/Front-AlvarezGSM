@@ -8,21 +8,31 @@ import "./style.css";
 
 class Navbar extends Component {
   static propTypes = {
-    navitems: PropTypes.array.isRequired,
-    itemtitle: PropTypes.string.isRequired
+    navitems: PropTypes.array.isRequired
   };
   render() {
     const { navitems } = this.props;
     return (
-      <div className="Navbar">
-        <ul>
-          {navitems &&
-            navitems.map((item, key) => (
-              <li key={key}>
-                <Link to={item.url}>{item.title}</Link>
+      <div className="col-md-2 px-0">
+        <nav className="navbar navbar-light bg-light">
+          <ul className="navbar-nav w-100">
+            <div className="centerNavBrand">
+              <li className="centerNavBrand">
+                <a className="navbar-brand" href="/home">
+                  AlvarezGSM
+                </a>
               </li>
-            ))}
-        </ul>
+            </div>
+            {navitems &&
+              navitems.map((item, key) => (
+                <li className="nav-item" key={key}>
+                  <Link className="nav-link" to={item.url}>
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </nav>
       </div>
     );
   }

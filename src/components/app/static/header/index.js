@@ -1,3 +1,3 @@
-import Header from './view';
+import Header from "./view";
 
 export default Header;

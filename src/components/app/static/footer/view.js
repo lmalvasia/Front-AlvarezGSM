@@ -6,11 +6,7 @@ import "./style.css";
 
 class Footer extends Component {
   render() {
-    return (
-      <div className="Footer">
-        <p>Footer Copyrai</p>
-      </div>
-    );
+    return <div className="Footer">Copiray</div>;
   }
 }
 

@@ -1,15 +1,17 @@
 //Dependencies
-import React from "react";
+import React, { Component } from "react";
 
-//Asssets
+//Assets
 import "./style.css";
 
-const Header = () => {
-  return (
-    <div className="Header">
-      <h1>AlvarezGSM System</h1>
-    </div>
-  );
-};
+class Header extends Component {
+  render() {
+    return (
+      <div className="Header bg-light text-right pr-5">
+        Bienvenido "Name" - <a href="/">Salir</a>
+      </div>
+    );
+  }
+}
 
 export default Header;
