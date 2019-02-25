@@ -21,10 +21,11 @@ export const getItemsThunk = () => dispatch => {
   });
   axios
     .get(URL + "/items")
-    .then(list => {
+    .then(response => {
       dispatch({
         type: GET_ITEMS_FULLFILED,
-        items: list
+        items: response,
+        payload: response.message
       });
     })
     .catch(error => {
@@ -41,10 +42,11 @@ export const addItemThunk = item => dispatch => {
   });
   axios
     .post(URL + "/items", item)
-    .then(() => {
+    .then(response => {
       dispatch({
         type: ADD_ITEM_FULLFILED,
-        product: item
+        product: item,
+        payload: response.message
       });
     })
     .catch(error => {
@@ -62,10 +64,11 @@ export const updateItemThunk = item => dispatch => {
 
   axios
     .put(URL + "/items/" + item._id)
-    .then(() => {
+    .then(response => {
       dispatch({
         type: UPDATE_ITEM_FULLFILED,
-        product: item
+        product: item,
+        payload: response.message
       });
     })
     .catch(error => {
@@ -85,7 +88,8 @@ export const deleteItemThunk = item => dispatch => {
     .then(response => {
       dispatch({
         type: DELETE_ITEM_FULLFILED,
-        payload: response.message
+        payload: response.message,
+        itemId: item._id
       });
     })
     .catch(error => {

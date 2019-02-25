@@ -1,6 +1,7 @@
 const items = {
   list: [],
-  error: null,
+  errorMsg: null,
+  successMsg: null,
   isLoading: false
 };
 
