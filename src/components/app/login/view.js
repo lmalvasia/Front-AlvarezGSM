@@ -30,7 +30,7 @@ class Login extends Component {
     const { handleSubmit } = this.props;
     return (
       <div
-        className="container w-25 vertical-center"
+        className="container w-25 center-box"
         style={{ background: "white" }}
       >
         <form onSubmit={handleSubmit(this.submit)}>

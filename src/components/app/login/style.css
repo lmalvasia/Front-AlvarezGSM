@@ -1,5 +1,7 @@
-.vertical-center {
+.center-box {
   height: 100%;
   display: flex;
   align-items: center;
+  align-content: center;
+  justify-content: center;
 }
