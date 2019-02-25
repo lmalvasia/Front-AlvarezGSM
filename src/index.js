@@ -15,6 +15,8 @@ import rootReducer from "./reducers";
 
 //Assets
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import * as serviceWorker from "./serviceWorker";
 
 export default function configureStore() {

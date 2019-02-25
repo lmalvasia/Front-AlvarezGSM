@@ -10,8 +10,6 @@ import Login from "./login";
 
 // Assets
 import "./style.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min.js";
 
 // Menu Items
 import Menu from "../../helpers/menu";

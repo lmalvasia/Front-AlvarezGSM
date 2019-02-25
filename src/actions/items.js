@@ -24,7 +24,7 @@ export const getItemsThunk = () => dispatch => {
     .then(response => {
       dispatch({
         type: GET_ITEMS_FULLFILED,
-        items: response,
+        items: response.data,
         payload: response.message
       });
     })
