@@ -1,46 +1,61 @@
 //Dependencies
 import React, { Component } from "react";
-
+import { Field, reduxForm } from "redux-form";
+import { withRouter } from "react-router-dom";
 //Assets
 import "./style.css";
 
 class Login extends Component {
+  submit = values => {
+    this.props.loginUser(values);
+  };
+  componentDidMount() {
+    if (this.props.authenticated) {
+      this.props.history.push("/home");
+    }
+  }
+  componentDidUpdate() {
+    setTimeout(() => {
+      if (this.props.authenticated) {
+        this.props.history.push("/home");
+      }
+    }, 1000);
+  }
+  errorMessage() {
+    if (this.props.errorMsg) {
+      return <div className="info-red">{this.props.errorMsg}</div>;
+    }
+  }
   render() {
+    const { handleSubmit } = this.props;
     return (
       <div
         className="container w-25 vertical-center"
         style={{ background: "white" }}
       >
-        <form>
+        <form onSubmit={handleSubmit(this.submit)}>
+          {this.errorMessage()}
           <div className="form-group">
             <label>Email:</label>
-            <input
-              type="email"
+            <Field
               className="form-control"
-              id="email"
-              placeholder="Enter email"
               name="email"
+              component="input"
+              type="text"
+              placeholder="Email"
+              autoComplete="email"
             />
           </div>
           <div className="form-group">
             <label>Password:</label>
-            <input
-              type="password"
+            <Field
               className="form-control"
-              id="password"
-              placeholder="Enter password"
               name="password"
+              component="input"
+              type="password"
+              placeholder="Password"
+              autoComplete="password"
             />
-          </div>
-          <div className="form-group form-check">
-            <label className="form-check-label">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="remember"
-              />
-              Remember me!
-            </label>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
@@ -51,4 +66,8 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(
+  reduxForm({
+    form: "login"
+  })(Login)
+);
