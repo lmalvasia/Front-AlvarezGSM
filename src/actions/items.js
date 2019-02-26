@@ -1,4 +1,5 @@
 import axios from "axios";
+import { authHeader } from "../helpers/auth-header";
 
 export const GET_ITEMS_PENDING = "GET_ITEMS_PENDING";
 export const GET_ITEMS_FULLFILED = "GET_ITEMS_FULLFILED";
@@ -20,7 +21,9 @@ export const getItemsThunk = () => dispatch => {
     type: GET_ITEMS_PENDING
   });
   axios
-    .get(URL + "/items")
+    .get(URL + "/items", {
+      headers: authHeader()
+    })
     .then(response => {
       dispatch({
         type: GET_ITEMS_FULLFILED,
