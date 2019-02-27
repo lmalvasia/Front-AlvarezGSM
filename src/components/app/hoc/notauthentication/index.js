@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 export default function(ComposedComponent) {
   class NotAuthentication extends Component {
     componentDidMount() {
-      console.log("algo");
       if (this.props.authenticated) {
         this.props.history.push("/home");
       }

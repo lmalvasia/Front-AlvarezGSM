@@ -16,6 +16,8 @@ class Items extends Component {
         <td>{item.description}</td>
         <td>{item.quantity}</td>
         <td>{item.price}</td>
+        <td className="update" />
+        <td className="delete" />
       </tr>
     ));
   };
@@ -39,6 +41,8 @@ class Items extends Component {
               <th scope="col">Description</th>
               <th scope="col">Quantity</th>
               <th scope="col">Price</th>
+              <th scope="col" />
+              <th scope="col" />
             </tr>
           </thead>
           <tbody>{this.getItemsList()}</tbody>

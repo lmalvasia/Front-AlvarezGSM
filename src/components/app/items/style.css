@@ -10,6 +10,17 @@ table tbody th:first-child::before {
   content: counter(rowNumber);
 }
 
+.update {
+  background-image: url("../static/images/modify.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.delete {
+  background-image: url("../static/images/delete.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
 th,
 td {
   border-bottom: 0.05em solid grey;
