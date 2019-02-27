@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 // Components
 import Header from "./static/header";
 import Navbar from "./static/navbar";
-import Footer from "./static/footer";
 import Content from "./static/content";
 import Login from "./login";
 
@@ -16,7 +15,7 @@ import Menu from "../../helpers/menu";
 
 const App = props => {
   return (
-    <div className="h-100">
+    <div className="h-100 background-app">
       {props.location.pathname === "/" ? (
         <Login />
       ) : (
@@ -29,9 +28,6 @@ const App = props => {
               <Navbar navitems={Menu} />
               <Content body={props.children} />
             </div>
-          </div>
-          <div className="container-fluid px-0">
-            <Footer />
           </div>
         </div>
       )}

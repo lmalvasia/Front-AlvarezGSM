@@ -7,3 +7,7 @@ body {
 #root {
   height: 100%;
 }
+
+.background-app {
+  background-color: #6785cb;
+}

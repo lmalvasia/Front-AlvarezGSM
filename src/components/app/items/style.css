@@ -1,0 +1,16 @@
+table {
+  counter-reset: rowNumber;
+}
+
+table tbody tr {
+  counter-increment: rowNumber;
+}
+
+table tbody th:first-child::before {
+  content: counter(rowNumber);
+}
+
+th,
+td {
+  border-bottom: 0.05em solid grey;
+}

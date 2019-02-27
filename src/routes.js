@@ -9,6 +9,7 @@ import Home from "./components/app/home";
 import Items from "./components/app/items";
 import Providers from "./components/app/providers";
 import Purchases from "./components/app/purchases";
+import NotFound from "./components/app/static/notfound";
 
 // Auth
 import requireAuth from "./components/app/hoc/authentication";
@@ -21,6 +22,7 @@ const AppRoutes = () => (
       <Route exact path="/items" component={requireAuth(Items)} />
       <Route exact path="/providers" component={requireAuth(Providers)} />
       <Route exact path="/purchases" component={requireAuth(Purchases)} />
+      <Route component={requireAuth(NotFound)} />
     </Switch>
   </App>
 );

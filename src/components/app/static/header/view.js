@@ -11,7 +11,7 @@ class Header extends Component {
   render() {
     console.log(localStorage.getItem("username"));
     return (
-      <div className="Header bg-light text-right pr-5">
+      <div className="text-right p-2 background-header">
         Bienvenido - {localStorage.getItem("username")} &nbsp;
         <a href="/" onClick={this.handleLogout}>
           Salir

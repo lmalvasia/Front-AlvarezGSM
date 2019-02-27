@@ -12,6 +12,7 @@ class Items extends Component {
     const { items } = this.props;
     return items.map(item => (
       <tr key={item._id}>
+        <th scope="row" />
         <td>{item.description}</td>
         <td>{item.quantity}</td>
         <td>{item.price}</td>
@@ -21,16 +22,26 @@ class Items extends Component {
   render() {
     return (
       <div className="content">
-        <h1>Items</h1>
-        <table>
-          <tbody>
+        <div className="row">
+          <div className="col-6">
+            <h1>Repuestos</h1>
+          </div>
+          <div className="col-6 text-right">
+            <a href="/addItem" className="btn btn-primary">
+              Add Item
+            </a>
+          </div>
+        </div>
+        <table className="table table-sm table-hover">
+          <thead className="thead-light">
             <tr>
-              <th>Description</th>
-              <th>Quantity</th>
-              <th>Price</th>
+              <th scope="col">#</th>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
             </tr>
-            {this.getItemsList()}
-          </tbody>
+          </thead>
+          <tbody>{this.getItemsList()}</tbody>
         </table>
       </div>
     );
