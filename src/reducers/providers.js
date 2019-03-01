@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
     case GET_PROVIDERS_FULLFILED:
       return {
         ...state,
-        list: action.providers,
+        list: action.Providers,
         errorMsg: null,
         successMsg: action.payload,
         isLoading: false
