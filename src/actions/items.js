@@ -87,7 +87,9 @@ export const deleteItemThunk = item => dispatch => {
     type: DELETE_ITEM_PENDING
   });
   axios
-    .delete(URL + "/items/" + item._id)
+    .delete(URL + "/items/" + item._id, {
+      headers: authHeader()
+    })
     .then(response => {
       dispatch({
         type: DELETE_ITEM_FULLFILED,
@@ -97,7 +99,7 @@ export const deleteItemThunk = item => dispatch => {
     })
     .catch(error => {
       dispatch({
-        type: UPDATE_ITEM_REJECTED,
+        type: DELETE_ITEM_REJECTED,
         payload: error
       });
     });

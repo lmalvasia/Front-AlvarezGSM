@@ -4,21 +4,23 @@ import React, { Component } from "react";
 //Assets
 import "./style.css";
 
+import Item from "./item";
+
 class Items extends Component {
   componentWillMount() {
     this.props.getItems();
   }
+
   getItemsList = () => {
     const { items } = this.props;
     return items.map(item => (
-      <tr key={item._id}>
-        <th scope="row" />
-        <td>{item.description}</td>
-        <td>{item.quantity}</td>
-        <td>{item.price}</td>
-        <td className="update" />
-        <td className="delete" />
-      </tr>
+      <Item
+        key={item._id}
+        _id={item._id}
+        description={item.description}
+        quantity={item.quantity}
+        price={item.price}
+      />
     ));
   };
   render() {
