@@ -1,0 +1,35 @@
+.tagline {
+    width: 400px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.home {
+    display: flex;
+    text-align: center;
+}
+
+.content {
+    margin-bottom: 30px;
+}
+
+.info {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+spam {
+    font-weight: bold        
+}
+
+p{
+    margin: 0;
+}
+
+h2{
+    font-family: sans-serif;
+    font-size: 250%;
+    font-style: italic;   
+}
+
