@@ -44,12 +44,14 @@ export const addItemThunk = item => dispatch => {
     type: ADD_ITEM_PENDING
   });
   axios
-    .post(URL + "/items", item)
+    .post(URL + "/items", item, {
+      headers: authHeader()
+    })
     .then(response => {
       dispatch({
         type: ADD_ITEM_FULLFILED,
-        product: item,
-        payload: response.message
+        product: response.data.item,
+        payload: response.data.message
       });
     })
     .catch(error => {

@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
     case ADD_ITEM_PENDING:
       return {
         ...state,
-        list: [],
+        list: [...state.list],
         errorMsg: null,
         successMsg: null,
         isLoading: true
