@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 //Assets
 import "./style.css";
+import Provider from "./provider";
 
 class Providers extends Component {
   componentWillMount() {
@@ -11,15 +12,14 @@ class Providers extends Component {
   getProvidersList = () => {
     const { providers } = this.props;
     return providers.map(provider => (
-      <tr key={provider._id}>
-        <th scope="row" />
-        <td>{provider.company}</td>
-        <td>{provider.email}</td>
-        <td>{provider.street}</td>
-        <td>{provider.cellphone}</td>
-        <td className="update" />
-        <td className="delete" />
-      </tr>
+      <Provider
+        key={provider._id}
+        _id={provider._id}
+        company={provider.company}
+        email={provider.email}
+        street={provider.street}
+        cellphone={provider.cellphone}
+      />
     ));
   };
   render() {
@@ -27,7 +27,7 @@ class Providers extends Component {
       <div className="content">
         <div className="row">
           <div className="col-6">
-            <h1>Repuestos</h1>
+            <h1>Proveedores</h1>
           </div>
           <div className="col-6 text-right">
             <a href="/addProvider" className="btn btn-primary">

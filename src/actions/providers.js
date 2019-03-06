@@ -87,7 +87,9 @@ export const deleteProviderThunk = Provider => dispatch => {
     type: DELETE_PROVIDER_PENDING
   });
   axios
-    .delete(URL + "/Providers/" + Provider._id)
+    .delete(URL + "/Providers/" + Provider._id, {
+      headers: authHeader()
+    })
     .then(response => {
       dispatch({
         type: DELETE_PROVIDER_FULLFILED,
@@ -97,7 +99,7 @@ export const deleteProviderThunk = Provider => dispatch => {
     })
     .catch(error => {
       dispatch({
-        type: UPDATE_PROVIDER_REJECTED,
+        type: DELETE_PROVIDER_REJECTED,
         payload: error
       });
     });
