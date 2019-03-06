@@ -57,7 +57,7 @@ export const addProviderThunk = Provider => dispatch => {
     .catch(error => {
       dispatch({
         type: ADD_PROVIDER_REJECTED,
-        payload: error
+        payload: error.response
       });
     });
 };

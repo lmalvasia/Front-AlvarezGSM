@@ -25,7 +25,7 @@ class Provider extends Component {
   handleCloseDelete() {
     this.setState({ showdelete: false });
   }
-  deleteItem = () => {
+  deleteProvider = () => {
     this.props.deleteProvider({
       _id: this.state.providerId
     });

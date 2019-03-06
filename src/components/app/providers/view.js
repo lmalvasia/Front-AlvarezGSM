@@ -8,7 +8,7 @@ import "./style.css";
 
 //Components
 import Provider from "./provider";
-import addProvider from "./addProvider";
+import AddProvider from "./addProvider";
 
 class Providers extends Component {
   constructor(props) {
@@ -84,8 +84,15 @@ class Providers extends Component {
               </thead>
               <tbody>{this.getProvidersList()}</tbody>
             </table>
-            <Modal open={showadd} onClose={this.handleCloseAdd} center>
-              <addProvider onClick={this.handleCloseAdd} />
+            <Modal
+              open={showadd}
+              onClose={this.handleCloseAdd}
+              center
+              classNames={{
+                modal: "customModal"
+              }}
+            >
+              <AddProvider onClick={this.handleCloseAdd} />
             </Modal>
           </React.Fragment>
         )}

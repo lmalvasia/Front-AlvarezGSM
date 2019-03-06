@@ -25,3 +25,7 @@ table {
   td {
     border-bottom: 0.05em solid grey;
   }
+
+  .customModal {
+    width: 80%;
+  }
