@@ -13,7 +13,7 @@ class Navbar extends Component {
   render() {
     const { navitems } = this.props;
     return (
-      <div className="col-md-2 px-0">
+      <div className="cont col-md-2 px-0">
         <nav className="navbar navbar-light background-nav">
           <ul className="navbar-nav w-100">
             <li className="centerNavBrand nav-title">

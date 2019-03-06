@@ -44,12 +44,14 @@ export const addProviderThunk = Provider => dispatch => {
     type: ADD_PROVIDER_PENDING
   });
   axios
-    .post(URL + "/Providers", Provider)
+    .post(URL + "/Providers", Provider,{
+      headers: authHeader()
+    })
     .then(response => {
       dispatch({
         type: ADD_PROVIDER_FULLFILED,
-        product: Provider,
-        payload: response.message
+        product: response.data.Provider,
+        payload: response.data.message
       });
     })
     .catch(error => {
