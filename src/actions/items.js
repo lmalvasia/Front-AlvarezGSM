@@ -62,41 +62,41 @@ export const addItemThunk = item => dispatch => {
     });
 };
 
-export const updateItemThunk = item => dispatch => {
+export const updateItemThunk = (id, item) => dispatch => {
   dispatch({
     type: UPDATE_ITEM_PENDING
   });
-
   axios
-    .put(URL + "/items/" + item._id)
+    .put(URL + "/items/" + id, item, {
+      headers: authHeader()
+    })
     .then(response => {
       dispatch({
         type: UPDATE_ITEM_FULLFILED,
         product: item,
-        payload: response.message
+        payload: response.data.message
       });
     })
     .catch(error => {
       dispatch({
         type: UPDATE_ITEM_REJECTED,
-        payload: error
+        payload: error.response
       });
     });
 };
 
-export const deleteItemThunk = item => dispatch => {
+export const deleteItemThunk = id => dispatch => {
   dispatch({
     type: DELETE_ITEM_PENDING
   });
   axios
-    .delete(URL + "/items/" + item._id, {
+    .delete(URL + "/items/" + id, {
       headers: authHeader()
     })
     .then(response => {
       dispatch({
         type: DELETE_ITEM_FULLFILED,
-        payload: response.message,
-        itemId: item._id
+        payload: response.message
       });
     })
     .catch(error => {
