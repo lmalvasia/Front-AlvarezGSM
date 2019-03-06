@@ -57,7 +57,7 @@ export const addItemThunk = item => dispatch => {
     .catch(error => {
       dispatch({
         type: ADD_ITEM_REJECTED,
-        payload: error
+        payload: error.response
       });
     });
 };

@@ -80,7 +80,14 @@ class Items extends Component {
               </thead>
               <tbody>{this.getItemsList()}</tbody>
             </table>
-            <Modal open={showadd} onClose={this.handleCloseAdd} center>
+            <Modal
+              open={showadd}
+              onClose={this.handleCloseAdd}
+              center
+              classNames={{
+                modal: "customModal"
+              }}
+            >
               <AddProduct onClick={this.handleCloseAdd} />
             </Modal>
           </React.Fragment>

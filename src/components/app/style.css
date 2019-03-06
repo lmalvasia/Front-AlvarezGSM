@@ -15,7 +15,16 @@ body {
   background-color: lightgreen;
   padding: 0.1rem;
   margin: 0.1rem;
-  border: #6bff59 solid 0.2rem;
+  border: green solid 0.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.errorMsg {
+  background-color: lightcoral;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  border: red solid 0.2rem;
   text-align: center;
   font-weight: 500;
 }

@@ -1,6 +1,7 @@
 //Dependencies
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
+import { withRouter } from "react-router-dom";
 
 //Assets
 import "./style.css";
@@ -17,8 +18,8 @@ class AddProduct extends Component {
   addItem = values => {
     this.props.addItem(values);
     setTimeout(() => {
-      this.props.onClick();
-    }, 1000);
+      this.props.history.push("/items");
+    }, 2000);
   };
   render() {
     const { handleSubmit } = this.props;
@@ -26,8 +27,12 @@ class AddProduct extends Component {
       <div>
         <h2>Add new item</h2>
         <div>
-          {this.props.successMsg ? (
-            <div className="successMsg">{this.props.successMsg}</div>
+          {this.props.successMsg || this.props.errorMsg ? (
+            this.props.successMsg ? (
+              <div className="successMsg">{this.props.successMsg}</div>
+            ) : (
+              <div className="errorMsg">{this.props.errorMsg.data.message}</div>
+            )
           ) : (
             <form onSubmit={handleSubmit(this.addItem)}>
               <div className="form-group">
@@ -40,7 +45,7 @@ class AddProduct extends Component {
                   placeholder="Description"
                 />
               </div>
-              <div className="from-group">
+              <div className="form-group">
                 <label>Quantity</label>
                 <Field
                   className="form-control"
@@ -50,7 +55,7 @@ class AddProduct extends Component {
                   placeholder="Quantity"
                 />
               </div>
-              <div className="from-group">
+              <div className="form-group">
                 <label>Price</label>
                 <Field
                   className="form-control"
@@ -60,16 +65,18 @@ class AddProduct extends Component {
                   placeholder="Price"
                 />
               </div>
-              <button type="submit" className="btn btn-primary m-1">
-                Add
-              </button>
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={this.props.onClick}
-              >
-                Cancelar
-              </button>
+              <div className="content-button">
+                <button type="submit" className="btn btn-primary m-1">
+                  Add
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={this.props.onClick}
+                >
+                  Cancelar
+                </button>
+              </div>
             </form>
           )}
         </div>
@@ -78,6 +85,8 @@ class AddProduct extends Component {
   }
 }
 
-export default reduxForm({
-  form: "addProduct"
-})(AddProduct);
+export default withRouter(
+  reduxForm({
+    form: "addProduct"
+  })(AddProduct)
+);
