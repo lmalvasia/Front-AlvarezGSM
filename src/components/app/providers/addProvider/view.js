@@ -6,6 +6,28 @@ import { withRouter } from "react-router-dom";
 //Assets
 import "./style.css";
 
+const required = value => (value ? undefined : "Required");
+
+const renderField = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning }
+}) => (
+  <div className="col-sm-10">
+    <input
+      {...input}
+      placeholder={label}
+      type={type}
+      className="form-control mb-2"
+    />
+    {touched &&
+      ((error && <span className="validation">{error}</span>) ||
+        (warning && <span className="validation">{warning}</span>))}
+  </div>
+);
+
+
 class AddProvider extends Component {
   constructor(props) {
     super(props);
@@ -36,44 +58,56 @@ class AddProvider extends Component {
             )
           ) : (
             <form onSubmit={handleSubmit(this.addProvider)}>
-              <div className="form-group">
-                <label>Company:</label>
+              <div className="form-group row">
+                <label className="col-sm-2 col-form-label text-center">
+                  Company:
+                </label>
                 <Field
                   className="form-control"
                   name="company"
-                  component="input"
+                  component={renderField}
                   type="text"
                   placeholder="Company"
+                  validate={[required]}
                 />
               </div>
-              <div className="form-group">
-                <label>Email:</label>
+              <div className="form-group row">
+                <label className="col-sm-2 col-form-label text-center">
+                  Email:
+                </label>
                 <Field
                   className="form-control"
                   name="email"
-                  component="input"
+                  component={renderField}
                   type="text"
                   placeholder="Email"
+                  validate={[required]}
                 />
               </div>
-              <div className="form-group">
-                <label>Street:</label>
+              <div className="form-group row">
+                <label className="col-sm-2 col-form-label text-center">
+                  Street:
+                </label>
                 <Field
                   className="form-control"
                   name="street"
-                  component="input"
+                  component={renderField}
                   type="text"
                   placeholder="Street"
+                  validate={[required]}
                 />
               </div>
-              <div className="from-group">
-                <label>Cellphone:</label>
+              <div className="form-group row">
+                <label className="col-sm-2 col-form-label text-center">
+                  Cellphone:
+                </label>
                 <Field
                   className="form-control"
                   name="cellphone"
-                  component="input"
+                  component={renderField}
                   type="text"
                   placeholder="Cellphone"
+                  validate={[required]}
                 />
               </div>
               <div className="content-button">
