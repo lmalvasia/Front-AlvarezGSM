@@ -50,6 +50,7 @@ class Providers extends Component {
       <div className="content">
         {this.props.isLoading === true ? (
           <ReactLoading
+            className="loading"
             type="spin"
             color="#6785cb"
             height={"5%"}

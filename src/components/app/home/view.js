@@ -17,8 +17,8 @@ class Home extends Component {
             Venta de equipos y accesorios.</p>
         </div>
         <div className="info">
-          <p><spam>Ubicacion:</spam> 9 de Julio 753 (2107 Alvarez)</p>
-          <p><spam>Telefono:</spam> 3402-458393</p>
+          <div><i className="material-icons align-middle">room</i><span className="h6">Ubicacion:</span> 9 de Julio 753 (2107 Alvarez)</div>
+          <div><i className="material-icons align-middle">phone_in_talk</i><span className="h6">Telefono:</span> 3402-458393</div>
         </div>
       </div>
     );

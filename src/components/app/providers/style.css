@@ -29,3 +29,8 @@ table {
   .customModal {
     width: 80%;
   }
+
+  .loading {
+    margin-left: 450px;
+    margin-top: 50px;
+  }

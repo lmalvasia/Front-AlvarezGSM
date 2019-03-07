@@ -1,7 +1,4 @@
-.centerNavBrand {
-  width: 100%;
-  text-align: center;
-}
+
 .nav-title {
   border-bottom: grey solid 0.1em;
 }
@@ -36,16 +33,15 @@
 
 .background-nav {
   background-color: #e1e1e1;
-  border-right: grey solid 0.2em;
-  border-left: grey solid 0.2em;
-  border-bottom: grey solid 0.2em;
+  box-shadow: 5px 5px 4px rgba(0,0,0,.5);
+
 }
 
 .nav-link {
   color: black !important;
-  border-bottom: grey dashed 0.05em;
-}
+ }
 
 .nav-link:hover {
   font-weight: 500;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px rgba(0,0,0,.5);
 }
