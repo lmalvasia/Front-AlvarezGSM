@@ -6,6 +6,32 @@ import { withRouter } from "react-router-dom";
 //Assets
 import "./style.css";
 
+const required = value => (value ? undefined : "Required");
+const number = value =>
+  value && isNaN(Number(value)) ? "Must be a number" : undefined;
+const minValue = min => value =>
+  value && value < min ? `Must be at least ${min}` : undefined;
+const minValue0 = minValue(0);
+
+const renderField = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning }
+}) => (
+  <div className="col-sm-10">
+    <input
+      {...input}
+      placeholder={label}
+      type={type}
+      className="form-control mb-2"
+    />
+    {touched &&
+      ((error && <span className="validation">{error}</span>) ||
+        (warning && <span className="validation">{warning}</span>))}
+  </div>
+);
+
 class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -35,34 +61,43 @@ class AddProduct extends Component {
             )
           ) : (
             <form onSubmit={handleSubmit(this.addItem)}>
-              <div className="form-group">
-                <label>Description:</label>
+              <div className="form-group row">
+                <label className="col-sm-2 col-form-label text-center">
+                  Description:
+                </label>
                 <Field
                   className="form-control"
                   name="description"
-                  component="input"
+                  component={renderField}
                   type="text"
                   placeholder="Description"
+                  validate={[required]}
                 />
               </div>
-              <div className="form-group">
-                <label>Quantity</label>
+              <div className="form-group row">
+                <label className="col-sm-2 col-form-label text-center">
+                  Quantity
+                </label>
                 <Field
                   className="form-control"
                   name="quantity"
-                  component="input"
+                  component={renderField}
                   type="text"
                   placeholder="Quantity"
+                  validate={[required, number, minValue0]}
                 />
               </div>
-              <div className="form-group">
-                <label>Price</label>
+              <div className="form-group row">
+                <label className="col-sm-2 col-form-label text-center">
+                  Price
+                </label>
                 <Field
                   className="form-control"
                   name="price"
-                  component="input"
+                  component={renderField}
                   type="text"
                   placeholder="Price"
+                  validate={[required, number, minValue0]}
                 />
               </div>
               <div className="content-button">
