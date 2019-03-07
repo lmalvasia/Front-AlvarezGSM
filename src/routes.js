@@ -8,6 +8,7 @@ import Login from "./components/app/login";
 import Home from "./components/app/home";
 import Items from "./components/app/items";
 import Providers from "./components/app/providers";
+import UpdateProvider from "./components/app/providers/provider/updateProvider"
 import Purchases from "./components/app/purchases";
 import NotFound from "./components/app/static/notfound";
 
@@ -21,6 +22,7 @@ const AppRoutes = () => (
       <Route exact path="/home" component={requireAuth(Home)} />
       <Route exact path="/items" component={requireAuth(Items)} />
       <Route exact path="/providers" component={requireAuth(Providers)} />
+      <Route exact path="/providers/:id" component={requireAuth(UpdateProvider)} />
       <Route exact path="/purchases" component={requireAuth(Purchases)} />
       <Route component={requireAuth(NotFound)} />
     </Switch>

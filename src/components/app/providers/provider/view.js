@@ -1,34 +1,24 @@
 //Dependencies
 import React, { Component } from "react";
 import Modal from "react-responsive-modal";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
-//Assets
-import UpdateProvider from "./updateProvider";
 
 class Provider extends Component {
   constructor(props) {
     super(props);
     this.handleShowDelete = this.handleShowDelete.bind(this);
     this.handleCloseDelete = this.handleCloseDelete.bind(this);
-    this.handleCloseUpdate = this.handleCloseUpdate.bind(this);
-    this.handleShowUpdate = this.handleShowUpdate.bind(this);
     this.state = {
       providerId: this.props._id,
       providerCompany: this.props.company,
       providerEmail: this.props.email,
       providerStreet: this.props.street,
       providerCellphone: this.props.cellphone,
-      showdelete: false,
-      showupdate: false
+      showdelete: false
     };
   }
-  handleShowUpdate() {
-    this.setState({ showupdate: true });
-  }
-  handleCloseUpdate() {
-    this.setState({ showupdate: false });
-  }
+  
   handleShowDelete() {
     this.setState({ showdelete: true });
   }
@@ -43,7 +33,6 @@ class Provider extends Component {
   };
   render() {
     const { showdelete } = this.state;
-    const { showupdate } = this.state;
     return (
       <React.Fragment>
         <tr key={this.state.providerId}>
@@ -52,7 +41,21 @@ class Provider extends Component {
           <td>{this.state.providerEmail}</td>
           <td>{this.state.providerStreet}</td>
           <td>{this.state.providerCellphone}</td>
-          <td className="update" onClick={this.handleShowUpdate} />
+          <td>
+            <Link
+              to={{
+                pathname: "/providers/" + this.state.providerId,
+                state: {
+                  company: this.state.providerCompany,
+                  email: this.state.providerEmail,
+                  street: this.state.providerStreet,
+                  cellphone: this.state.providerCellphone
+                }
+              }}
+            >
+              <img src={require("../../static/images/modify.png")} alt="no" />
+            </Link>
+          </td>
           <td className="delete" onClick={this.handleShowDelete} />
         </tr>
         <Modal
@@ -63,32 +66,18 @@ class Provider extends Component {
             modal: "customModal"
           }}
         >
-          <h2>Do you want to delete the provider?</h2>
-          <button className="btn btn-primary m-1" onClick={this.deleteProvider}>
-            Delete
-          </button>
-          <button
-            className="btn btn-secondary"
-            onClick={this.handleCloseDelete}
-          >
-            Cancel
-          </button>
-        </Modal>
-        <Modal
-          open={showupdate}
-          onClose={this.handleCloseUpdate}
-          center
-          classNames={{ modal: "customModal" }}
-        >
-          <UpdateProvider
-            closeModal={this.handleCloseUpdate}
-            openModal={this.handleShowUpdate}
-            _id={this.state.providerId}
-            company={this.state.providerCompany}
-            email={this.state.providerEmail}
-            street={this.state.providerStreet}
-            cellphone={this.state.providerCellphone}
-          />
+          <div>
+            <h2>Do you want to delete the provider?</h2>
+            <button className="btn btn-primary m-1" onClick={this.deleteProvider}>
+              Delete
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={this.handleCloseDelete}
+            >
+              Cancel
+            </button>
+          </div>
         </Modal>
       </React.Fragment>
     );
