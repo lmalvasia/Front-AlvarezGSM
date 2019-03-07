@@ -9,10 +9,9 @@ class Header extends Component {
     this.props.logout();
   };
   render() {
-    console.log(localStorage.getItem("username"));
     return (
       <div className="text-right p-2 background-header">
-         <spam>Bienvenido</spam> - {localStorage.getItem("username")} &nbsp;
+         <span>Bienvenido</span> - {localStorage.getItem("username")} &nbsp;
         <a className="font-weight-bold" href="/" onClick={this.handleLogout}>
           Salir
         </a>

@@ -62,41 +62,42 @@ export const addProviderThunk = Provider => dispatch => {
     });
 };
 
-export const updateProviderThunk = Provider => dispatch => {
+export const updateProviderThunk = (id, provider) => dispatch => {
   dispatch({
     type: UPDATE_PROVIDER_PENDING
   });
 
   axios
-    .put(URL + "/Providers/" + Provider._id)
+    .put(URL + "/Providers/" + id, provider, {
+      headers: authHeader()
+    })  
     .then(response => {
       dispatch({
         type: UPDATE_PROVIDER_FULLFILED,
-        product: Provider,
-        payload: response.message
+        product: provider,
+        payload: response.data.message
       });
     })
     .catch(error => {
       dispatch({
         type: UPDATE_PROVIDER_REJECTED,
-        payload: error
+        payload: error.response
       });
     });
 };
 
-export const deleteProviderThunk = Provider => dispatch => {
+export const deleteProviderThunk = id => dispatch => {
   dispatch({
     type: DELETE_PROVIDER_PENDING
   });
   axios
-    .delete(URL + "/Providers/" + Provider._id, {
+    .delete(URL + "/Providers/" + id, {
       headers: authHeader()
     })
     .then(response => {
       dispatch({
         type: DELETE_PROVIDER_FULLFILED,
-        payload: response.message,
-        ProviderId: Provider._id
+        payload: Response.message
       });
     })
     .catch(error => {

@@ -20,7 +20,7 @@ class AddProvider extends Component {
     this.props.addProvider(values);
     setTimeout(() => {
       this.props.history.push("/providers");
-    }, 2000);
+    }, 100);
   };
   render() {
     const { handleSubmit } = this.props;
