@@ -1,6 +1,6 @@
-import Providers from "./view";
+import Provider from "./view";
 import { connect } from "react-redux";
-import { getProvidersThunk, deleteProviderThunk } from "../../../actions/providers";
+import { deleteProviderThunk } from "../../../../actions/providers";
 
 const mapStateToProps = state => ({
   providers: state.providers.list,
@@ -10,15 +10,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getProviders: () => {
-    dispatch(getProvidersThunk());
-  },
-  deleteProvider: id => {
-    dispatch(deleteProviderThunk(id));
+  deleteProvider: provider => {
+    dispatch(deleteProviderThunk(provider));
   }
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Providers);
+)(Provider);

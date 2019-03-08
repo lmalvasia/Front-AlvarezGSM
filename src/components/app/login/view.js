@@ -34,7 +34,7 @@ class Login extends Component {
           <div className="logo">
             <span className="title-login">AlvarezGSM</span>
           </div>
-          <div className="container-form-login">
+          <div className="container container-form-login">
             <form onSubmit={handleSubmit(this.submit)}>
               {this.errorMessage()}
               <div className="form-group">
