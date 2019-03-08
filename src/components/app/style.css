@@ -7,3 +7,24 @@ body {
 #root {
   height: 100%;
 }
+
+.background-app {
+  background-color: #6785cb;
+}
+.successMsg {
+  background-color: lightgreen;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  border: green solid 0.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.errorMsg {
+  background-color: lightcoral;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  border: red solid 0.2rem;
+  text-align: center;
+  font-weight: 500;
+}

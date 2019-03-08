@@ -6,7 +6,6 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/logOnlyInProduction";
 import thunk from "redux-thunk";
 import { AUTHENTICATED } from "./actions/authentication";
-
 //Routes
 import Routes from "./routes";
 
@@ -15,7 +14,6 @@ import rootReducer from "./reducers";
 
 //Assets
 import "./index.css";
-import * as serviceWorker from "./serviceWorker";
 
 export default function configureStore() {
   const enhancer = composeWithDevTools(applyMiddleware(thunk));
@@ -38,8 +36,3 @@ render(
   </Provider>,
   document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();

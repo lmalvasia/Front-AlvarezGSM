@@ -14,15 +14,13 @@ class Navbar extends Component {
     const { navitems } = this.props;
     return (
       <div className="col-md-2 px-0">
-        <nav className="navbar navbar-light bg-light">
+        <nav className="navbar navbar-light background-nav">
           <ul className="navbar-nav w-100">
-            <div className="centerNavBrand">
-              <li className="centerNavBrand">
-                <a className="navbar-brand" href="/home">
-                  AlvarezGSM
-                </a>
-              </li>
-            </div>
+            <li className="centerNavBrand nav-title">
+              <a className="navbar-brand" href="/home">
+                <span className="logo-title">AlvarezGSM</span>
+              </a>
+            </li>
             {navitems &&
               navitems.map((item, key) => (
                 <li className="nav-item" key={key}>

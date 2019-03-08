@@ -29,38 +29,42 @@ class Login extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div
-        className="container w-25 center-box"
-        style={{ background: "white" }}
-      >
-        <form onSubmit={handleSubmit(this.submit)}>
-          {this.errorMessage()}
-          <div className="form-group">
-            <label>Email:</label>
-            <Field
-              className="form-control"
-              name="email"
-              component="input"
-              type="text"
-              placeholder="Email"
-              autoComplete="email"
-            />
+      <div className="center-box background-login">
+        <div className="w-25 container-login">
+          <div className="logo">
+            <span className="title-login">AlvarezGSM</span>
           </div>
-          <div className="form-group">
-            <label>Password:</label>
-            <Field
-              className="form-control"
-              name="password"
-              component="input"
-              type="password"
-              placeholder="Password"
-              autoComplete="password"
-            />
+          <div className="container-form-login">
+            <form onSubmit={handleSubmit(this.submit)}>
+              {this.errorMessage()}
+              <div className="form-group">
+                <label>Email:</label>
+                <Field
+                  className="form-control"
+                  name="email"
+                  component="input"
+                  type="text"
+                  placeholder="Email"
+                  autoComplete="email"
+                />
+              </div>
+              <div className="form-group">
+                <label>Password:</label>
+                <Field
+                  className="form-control"
+                  name="password"
+                  component="input"
+                  type="password"
+                  placeholder="Password"
+                  autoComplete="password"
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </form>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </form>
+        </div>
       </div>
     );
   }
