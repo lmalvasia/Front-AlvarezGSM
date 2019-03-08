@@ -31,6 +31,7 @@ class Items extends Component {
   }
   getItemsList = () => {
     const { items } = this.props;
+    console.log(items);
     return items.map(item => (
       <Item
         key={item._id}

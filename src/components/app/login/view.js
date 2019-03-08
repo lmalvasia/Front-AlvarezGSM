@@ -23,7 +23,7 @@ class Login extends Component {
   }
   errorMessage() {
     if (this.props.errorMsg) {
-      return <div className="info-red">{this.props.errorMsg}</div>;
+      return <div className="Error">{this.props.errorMsg}</div>;
     }
   }
   render() {
@@ -32,13 +32,13 @@ class Login extends Component {
       <div className="center-box background-login">
         <div className="w-25 container-login">
           <div className="logo">
-            <span className="title-login">AlvarezGSM</span>
+            <span className="title-login ml-4">AlvarezGSM</span>
           </div>
           <div className="container container-form-login">
             <form onSubmit={handleSubmit(this.submit)}>
               {this.errorMessage()}
               <div className="form-group">
-                <label>Email:</label>
+                <label className="h6 mt-4">Email:</label>
                 <Field
                   className="form-control"
                   name="email"
@@ -49,7 +49,7 @@ class Login extends Component {
                 />
               </div>
               <div className="form-group">
-                <label>Password:</label>
+                <label className="h6">Password:</label>
                 <Field
                   className="form-control"
                   name="password"
