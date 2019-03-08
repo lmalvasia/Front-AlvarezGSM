@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
     case ADD_ITEM_PENDING:
       return {
         ...state,
-        list: [],
+        list: [...state.list],
         errorMsg: null,
         successMsg: null,
         isLoading: true
@@ -101,7 +101,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         list: state.list.filter(item => item._id !== action.itemId),
         errorMsg: null,
-        successMsg: action.payload,
+        successMsg: "Item deleted successfully!",
         isLoading: false
       };
     case DELETE_ITEM_REJECTED:

@@ -44,60 +44,64 @@ export const addItemThunk = item => dispatch => {
     type: ADD_ITEM_PENDING
   });
   axios
-    .post(URL + "/items", item)
+    .post(URL + "/items", item, {
+      headers: authHeader()
+    })
     .then(response => {
       dispatch({
         type: ADD_ITEM_FULLFILED,
-        product: item,
-        payload: response.message
+        product: response.data.item,
+        payload: response.data.message
       });
     })
     .catch(error => {
       dispatch({
         type: ADD_ITEM_REJECTED,
-        payload: error
+        payload: error.response
       });
     });
 };
 
-export const updateItemThunk = item => dispatch => {
+export const updateItemThunk = (id, item) => dispatch => {
   dispatch({
     type: UPDATE_ITEM_PENDING
   });
-
   axios
-    .put(URL + "/items/" + item._id)
+    .put(URL + "/items/" + id, item, {
+      headers: authHeader()
+    })
     .then(response => {
       dispatch({
         type: UPDATE_ITEM_FULLFILED,
         product: item,
+        payload: response.data.message
+      });
+    })
+    .catch(error => {
+      dispatch({
+        type: UPDATE_ITEM_REJECTED,
+        payload: error.response
+      });
+    });
+};
+
+export const deleteItemThunk = id => dispatch => {
+  dispatch({
+    type: DELETE_ITEM_PENDING
+  });
+  axios
+    .delete(URL + "/items/" + id, {
+      headers: authHeader()
+    })
+    .then(response => {
+      dispatch({
+        type: DELETE_ITEM_FULLFILED,
         payload: response.message
       });
     })
     .catch(error => {
       dispatch({
-        type: UPDATE_ITEM_REJECTED,
-        payload: error
-      });
-    });
-};
-
-export const deleteItemThunk = item => dispatch => {
-  dispatch({
-    type: DELETE_ITEM_PENDING
-  });
-  axios
-    .delete(URL + "/items/" + item._id)
-    .then(response => {
-      dispatch({
-        type: DELETE_ITEM_FULLFILED,
-        payload: response.message,
-        itemId: item._id
-      });
-    })
-    .catch(error => {
-      dispatch({
-        type: UPDATE_ITEM_REJECTED,
+        type: DELETE_ITEM_REJECTED,
         payload: error
       });
     });

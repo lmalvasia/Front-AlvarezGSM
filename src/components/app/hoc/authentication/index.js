@@ -1,16 +1,36 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { signOutThunk } from "../../../../actions/authentication";
+import jwtCheck from "../../../../helpers/check-jwt";
 
 export default function(ComposedComponent) {
   class Authentication extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        expired: false
+      };
+    }
     componentWillMount() {
+      if (!jwtCheck()) {
+        this.props.signOut();
+        this.setState({
+          expired: true
+        });
+      }
       if (!this.props.authenticated) {
         this.props.history.push("/");
       }
     }
 
     componentWillUpdate(nextProps) {
+      if (!jwtCheck()) {
+        this.props.signOut();
+        this.setState({
+          expired: true
+        });
+      }
       if (!nextProps.authenticated) {
         this.props.history.push("/");
       }
@@ -21,7 +41,12 @@ export default function(ComposedComponent) {
     };
 
     render() {
-      return <ComposedComponent {...this.props} />;
+      return (
+        <React.Fragment>
+          <ComposedComponent {...this.props} />
+          {this.state.expired ? alert("Session expired") : null}
+        </React.Fragment>
+      );
     }
   }
 
@@ -29,5 +54,14 @@ export default function(ComposedComponent) {
     return { authenticated: state.authentication.authenticated };
   }
 
-  return connect(mapStateToProps)(Authentication);
+  const mapDispatchToProps = dispatch => ({
+    signOut: () => {
+      dispatch(signOutThunk());
+    }
+  });
+
+  return connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Authentication);
 }

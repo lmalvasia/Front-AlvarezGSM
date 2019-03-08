@@ -7,6 +7,7 @@ import App from "./components/app";
 import Login from "./components/app/login";
 import Home from "./components/app/home";
 import Items from "./components/app/items";
+import UpdateItem from "./components/app/items/item/updateProduct";
 import Providers from "./components/app/providers";
 import UpdateProvider from "./components/app/providers/provider/updateProvider"
 import Purchases from "./components/app/purchases";
@@ -21,6 +22,7 @@ const AppRoutes = () => (
       <Route exact path="/" component={Login} />
       <Route exact path="/home" component={requireAuth(Home)} />
       <Route exact path="/items" component={requireAuth(Items)} />
+      <Route exact path="/items/:id" component={requireAuth(UpdateItem)} />
       <Route exact path="/providers" component={requireAuth(Providers)} />
       <Route exact path="/providers/:id" component={requireAuth(UpdateProvider)} />
       <Route exact path="/purchases" component={requireAuth(Purchases)} />
