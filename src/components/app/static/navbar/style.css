@@ -1,8 +1,4 @@
 
-.nav-title {
-  border-bottom: grey solid 0.1em;
-}
-
 .logo-title {
   font: 700 1.5em/1 "Oswald", sans-serif;
   letter-spacing: 0;
@@ -44,4 +40,9 @@
 .nav-link:hover {
   font-weight: 500;
   box-shadow: 0.2px 0.2px 0.2px 0.2px rgba(0,0,0,.5);
+}
+
+.navbar {
+  border-top: #022a4d solid;
+  
 }
