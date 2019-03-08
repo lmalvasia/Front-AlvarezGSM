@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Modal from "react-responsive-modal";
 import { withRouter, Link } from "react-router-dom";
 
-
 class Provider extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +17,7 @@ class Provider extends Component {
       showdelete: false
     };
   }
-  
+
   handleShowDelete() {
     this.setState({ showdelete: true });
   }
@@ -68,7 +67,10 @@ class Provider extends Component {
         >
           <div>
             <h2>Do you want to delete the provider?</h2>
-            <button className="btn btn-primary m-1" onClick={this.deleteProvider}>
+            <button
+              className="btn btn-primary m-1"
+              onClick={this.deleteProvider}
+            >
               Delete
             </button>
             <button

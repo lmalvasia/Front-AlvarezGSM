@@ -9,9 +9,17 @@ body {
 }
 
 .background-app {
-  background: #000428;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #004e92,
+    #000428
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #004e92,
+    #000428
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .successMsg {
   background-color: lightgreen;
@@ -29,4 +37,22 @@ body {
   border: red solid 0.2rem;
   text-align: center;
   font-weight: 500;
+}
+
+.loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete {
+  background-image: url("./static/images/delete.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0.5rem !important;
+}
+
+.delete:hover {
+  cursor: pointer;
 }

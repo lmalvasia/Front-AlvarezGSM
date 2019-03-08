@@ -44,19 +44,21 @@ class Items extends Component {
   render() {
     const { showadd } = this.state;
     return (
-      <div className="content">
+      <div className="p-3">
         {this.props.isLoading === true ? (
-          <ReactLoading
-            type="spin"
-            color="#6785cb"
-            height={"5%"}
-            width={"5%"}
-          />
+          <div className="loading">
+            <ReactLoading
+              type="spin"
+              color="#6785cb"
+              height={"5%"}
+              width={"5%"}
+            />
+          </div>
         ) : (
           <React.Fragment>
             <div className="row">
               <div className="col-6">
-                <h1>Repuestos</h1>
+                <h1>Items</h1>
               </div>
               <div className="col-6 text-right">
                 <button
@@ -67,19 +69,21 @@ class Items extends Component {
                 </button>
               </div>
             </div>
-            <table className="table table-sm table-hover">
-              <thead className="thead-light">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Price</th>
-                  <th scope="col" />
-                  <th scope="col" />
-                </tr>
-              </thead>
-              <tbody>{this.getItemsList()}</tbody>
-            </table>
+            <div className="table-responsive">
+              <table className="table table-sm table-hover">
+                <thead className="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col" />
+                    <th scope="col" />
+                  </tr>
+                </thead>
+                <tbody>{this.getItemsList()}</tbody>
+              </table>
+            </div>
             <Modal
               open={showadd}
               onClose={this.handleCloseAdd}

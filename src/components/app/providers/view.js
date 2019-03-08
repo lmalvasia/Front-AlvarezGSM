@@ -47,15 +47,16 @@ class Providers extends Component {
   render() {
     const { showadd } = this.state;
     return (
-      <div className="content">
+      <div className="p-3">
         {this.props.isLoading === true ? (
-          <ReactLoading
-            className="loading"
-            type="spin"
-            color="#6785cb"
-            height={"5%"}
-            width={"5%"}
-          />
+          <div className="loading">
+            <ReactLoading
+              type="spin"
+              color="#6785cb"
+              height={"5%"}
+              width={"5%"}
+            />
+          </div>
         ) : (
           <React.Fragment>
             <div className="row">
@@ -71,20 +72,22 @@ class Providers extends Component {
                 </button>
               </div>
             </div>
-            <table className="table table-sm table-hover">
-              <thead className="thead-light">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Company</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Street</th>
-                  <th scope="col">Cellphone</th>
-                  <th scope="col" />
-                  <th scope="col" />
-                </tr>
-              </thead>
-              <tbody>{this.getProvidersList()}</tbody>
-            </table>
+            <div className="table-responsive">
+              <table className="table table-sm table-hover">
+                <thead className="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Street</th>
+                    <th scope="col">Cellphone</th>
+                    <th scope="col" />
+                    <th scope="col" />
+                  </tr>
+                </thead>
+                <tbody>{this.getProvidersList()}</tbody>
+              </table>
+            </div>
             <Modal
               open={showadd}
               onClose={this.handleCloseAdd}
