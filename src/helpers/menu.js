@@ -10,9 +10,5 @@ export default [
   {
     title: "Items",
     url: "/items"
-  },
-  {
-    title: "Purchases",
-    url: "/purchases"
   }
 ];
